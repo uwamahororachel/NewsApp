@@ -70,14 +70,7 @@ def get_articles(id):
     Function that gets  response to  request
     '''
     get_articles_url = base_url_articles.format(id, api_key)
-    print(get_articles_url)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        get_articles_response = json.loads(get_articles_data)
 
-        articles_results = None
-
-        if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_articles(articles_results_list)
 
@@ -92,7 +85,19 @@ def process_articles(articles_list):
 
     for article_item in articles_list:
 
-      
+        id = article_item.get('id')
+        author = article_item.get('name')
+        description = article_item.get('description')
+        title = article_item.get('title')
+        url = article_item.get('url')
+        content = article_item.get('content')
+        urlToImage = article_item.get('urlToImage')
+        publishedAt = article_item.get('publishedAt')
+        if urlToImage:
+          articles_object = Articles(
+            id, author, title, description, url, content, urlToImage,publishedAt)
+
+        articles_results.append(articles_object)
 
     return articles_results
 
