@@ -17,3 +17,12 @@ def index():
 	title = "News Source website"
 
 	return render_template('index.html', title=title, business=source, sports=sports_sources, technology=technology_sources, entertainment=entertainment_sources)
+
+@main.route('/articles/<id>')
+def source(id):
+	'''
+	view articles
+	'''
+	articles = get_articles(id)
+   
+	return render_template('articles.html', id=id, articles=articles)
