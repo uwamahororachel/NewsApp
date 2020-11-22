@@ -11,7 +11,13 @@
 				              
                               <img src="{{article.urlToImage}}"  class="img-responsive"style="height:250px" >
                               <h4>{{article.title}}</h4>
+						      <div class="me">
+						        <p>{{article.description | truncate(110)}}</p>
+						        <a href="{{article.url}}" target="_blank"> <button class="btn btn-info">read more</button></a>
+ 
+						      </div>
 						    
+						      Published At: {{article.publishedAt}}
 	  					</div>
 			     	</div>
 			     	
