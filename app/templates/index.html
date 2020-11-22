@@ -6,7 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <style>
-     
+        h3{
+            text-align:center;
+            color: brown!important;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-decoration: underline;
+            margin-bottom:24px;
+            font-size:30px!important;
+            font-weight: bolder!important;
+            text-transform: capitalize;
+            
+            
+        }
     </style>
     
 </head>
@@ -14,7 +25,22 @@
 {% import 'macros.html'as macro%}
 
 <body >
-      
+       
+{%block content%}
+
+<div style="background-color:whitesmoke ">
+<div class="container">
+<h1 class="text-center font-weight-bold text-uppercase;font-family: Georgia, 'Times New Roman', Times, serif">WELCOME TO NEWS HIGLIGHT </h1>
+ 
+
+
+    <h3>Technology News</h3>
+    {{ macro.displaySourceList(technology)}}
+
+
+    <h3>Business News</h3>
+    {{ macro.displaySourceList(business)}}
+
   
 </body>
 </html>
