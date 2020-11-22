@@ -2,7 +2,24 @@
 {% block content%}
 <div style="background:black;">
 <div class="container">
-        
+        <h3> WELCOME TO ARTICLES </h3>
+        {% for article_row in articles | batch(3) %}
+	        <div class="row">
+		        {% for article in article_row %}
+		        	<div class="col-md-4">
+				        <div class="thumbnail">
+				              
+                              <img src="{{article.urlToImage}}"  class="img-responsive"style="height:250px" >
+                              <h4>{{article.title}}</h4>
+						    
+	  					</div>
+			     	</div>
+			     	
+		        {% endfor %}
+	        
+	        </div>
+         
+        {% endfor %}
         
 </div>	
 </div>
