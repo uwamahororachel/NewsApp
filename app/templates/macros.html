@@ -4,12 +4,23 @@
 <div class="row">
         {% for sources in source_row %}
         
-      
+        <div class="col-md-3">
+                {{sources.title}}
+                   <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="font-weight-bold text-danger text-uppercase">{{sources.name}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ sources.description |truncate(150)}}</p>
+                        
+                        <a href="/articles/{{sources.id}}" ><button class="btn btn-dark" style="background-color:brown; color:#fff">View articles</button></a>
+                    </div>
        
         </div>
     </div>
         {% endfor %}
             
+        
 </div>
 
 {% endfor %}
