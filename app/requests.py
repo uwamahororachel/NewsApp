@@ -70,7 +70,14 @@ def get_articles(id):
     Function that gets  response to  request
     '''
     get_articles_url = base_url_articles.format(id, api_key)
+    print(get_articles_url)
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
 
+        articles_results = None
+
+        if get_articles_response['articles']:
             articles_results_list = get_articles_response['articles']
             articles_results = process_articles(articles_results_list)
 
